@@ -21,3 +21,10 @@ export type SongType = {
   trackName: string,
   previewUrl: string,
 };
+
+export type globalState = {
+  globalState: {
+    albumList: AlbumType[];
+    searchArtist: (artist: string) => void;
+  }
+};
