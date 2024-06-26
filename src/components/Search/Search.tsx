@@ -77,7 +77,7 @@ export default function Search({ globalState }: GlobalState) {
             {albumList.length > 0 && (
               <h2>{`Resultado de álbuns de: ${artistSearch}`}</h2>
             )}
-            <div id="album-list">
+            <div className="album-list">
               {albumList.map((album: AlbumType) => (
                 <AlbumCard
                   key={ album.collectionId }

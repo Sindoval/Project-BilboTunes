@@ -1,10 +1,11 @@
 .album-card {
-    text-align: center;
-    border: 1px solid black;
-    width: 30%;
-    margin: 15px;
+  border: 1px solid black;
+  margin: 15px;
+  text-align: center;
+  width: 30%;
 }
- .album-card a {
-    text-decoration: none;
-    color: black;
- }
+
+.album-card a {
+  color: black;
+  text-decoration: none;
+}
