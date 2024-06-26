@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Login from "./components/Login/Login";
-import Search from "./components/Search/Search";
-import Album from "./components/Album/Album";
-import { AlbumType } from "./types";
-import searchAlbumsAPI from "./services/searchAlbumsAPI";
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import Login from './components/Login/Login';
+import Search from './components/Search/Search';
+import Album from './components/Album/Album';
+import { AlbumType } from './types';
+import searchAlbumsAPI from './services/searchAlbumsAPI';
 
 function App() {
   const [albumList, setArtistList] = useState<AlbumType[] | []>([]);

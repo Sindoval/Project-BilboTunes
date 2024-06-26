@@ -22,7 +22,7 @@ export type SongType = {
   previewUrl: string,
 };
 
-export type globalState = {
+export type GlobalState = {
   globalState: {
     albumList: AlbumType[];
     searchArtist: (artist: string) => void;
