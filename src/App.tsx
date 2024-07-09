@@ -5,6 +5,7 @@ import Search from './components/Search/Search';
 import Album from './components/Album/Album';
 import { AlbumType } from './types';
 import searchAlbumsAPI from './services/searchAlbumsAPI';
+import Layout from './components/Layout/Layout';
 
 function App() {
   const [albumList, setArtistList] = useState<AlbumType[] | []>([]);
@@ -17,15 +18,17 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={ <Login /> } />
-      <Route
-        path="/search"
-        element={ <Search globalState={ { albumList, searchArtist } } /> }
-      />
-      <Route path="/album/:id" element={ <Album /> } />
-      <Route path="/favorites" />
-      <Route path="/profile" />
-      <Route path="/profile/edit" />
-      <Route path="*/" />
+      <Route path="/" element={ <Layout /> }>
+        <Route
+          path="/search"
+          element={ <Search globalState={ { albumList, searchArtist } } /> }
+        />
+        <Route path="/album/:id" element={ <Album /> } />
+        <Route path="/favorites" />
+        <Route path="/profile" />
+        <Route path="/profile/edit" />
+        <Route path="*/" />
+      </Route>
     </Routes>
   );
 }

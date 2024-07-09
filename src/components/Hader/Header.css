@@ -1,0 +1,12 @@
+.active {
+  font-weight: 700;
+}
+
+header {
+  text-align: center;
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+}

@@ -48,6 +48,7 @@ export default function Album() {
               <MusicCard
                 key={ music.trackId }
                 info={ {
+                  id: music.trackId,
                   trackName: music.trackName,
                   previewUrl: music.previewUrl,
                   artWorkUrl100: infoArtist.artworkUrl100,
