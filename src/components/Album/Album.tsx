@@ -4,18 +4,13 @@ import getMusics from '../../services/musicsAPI';
 import Loading from '../Loading/Loading';
 import { AlbumType, SongType } from '../../types';
 import MusicCard from '../MusicCard/MusicCard';
-
-// faça uma requisição utilizando a função getMusics do arquivo src/services/musicsAPI.ts
-// Enquanto aguarda a resposta da API, exiba a mensagem Carregando...
-// Exiba o nome da banda ou artista na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo data-testid="artist-name"
-// Exiba o nome do álbum na tela. Você pode usar qualquer tag HTML que faça sentido, desde que ela tenha o atributo data-testid="album-name"
-// Liste todas as músicas do álbum na tela. Para isso, crie um componente chamado MusicCard que deverá exibir o nome da música (propriedade trackName no objeto
-// recebido pela API) e um player para tocar o previe  da música (propriedade previewUrl no objeto recebido pela API).
+import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 
 export default function Album() {
   const [musics, setMusics] = useState<SongType[] | []>([]);
   const [infoArtist, setInfoArtist] = useState<AlbumType | null>(null);
   const [loading, setLoading] = useState(true);
+  const [favMusics, setFavMusics] = useState<SongType[] | []>([]);
   const params = useParams();
   const id = params.id ?? 'notFound';
 
@@ -27,6 +22,11 @@ export default function Album() {
       setMusics(musicList);
       setLoading(false);
     };
+    const favoritesMusics = async () => {
+      const musicsFav = await getFavoriteSongs();
+      setFavMusics(musicsFav);
+    };
+    favoritesMusics();
     musicsAPI();
   }, [id]);
 
@@ -52,6 +52,7 @@ export default function Album() {
                   trackName: music.trackName,
                   previewUrl: music.previewUrl,
                   artWorkUrl100: infoArtist.artworkUrl100,
+                  favMusics,
                 } }
               />
             ))}

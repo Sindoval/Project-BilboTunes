@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import empty_heart from '../../images/empty_heart.png';
 import checked_heart from '../../images/checked_heart.png';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI';
+import { SongType } from '../../types';
 
 type MusicCardProps = {
   info: {
@@ -8,14 +10,33 @@ type MusicCardProps = {
     trackName: string,
     previewUrl: string,
     artWorkUrl100: string,
+    favMusics: SongType[],
   };
 };
 
 export default function MusicCard({ info }: MusicCardProps) {
   const [inputCheck, setInputCheck] = useState(false);
 
-  const hangleChange = () => {
+  useEffect(() => {
+    if (info.favMusics) {
+      const favTest = info.favMusics.some((music) => music.trackId === info.id);
+      setInputCheck(favTest);
+    }
+  }, [info.favMusics, info.id]);
+
+  const handleChange = async () => {
     setInputCheck(!inputCheck);
+    if (!inputCheck) {
+      await addSong({
+        trackId: info.id,
+        trackName: info.trackName,
+        previewUrl: info.previewUrl });
+    } else {
+      await removeSong({
+        trackId: info.id,
+        trackName: info.trackName,
+        previewUrl: info.previewUrl });
+    }
   };
 
   return (
@@ -38,7 +59,7 @@ export default function MusicCard({ info }: MusicCardProps) {
           name=""
           id={ info.trackName }
           checked={ inputCheck }
-          onChange={ hangleChange }
+          onChange={ handleChange }
         />
         {inputCheck ? (
           <img src={ checked_heart } alt="favorite" id={ info.trackName } />
