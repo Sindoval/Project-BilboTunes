@@ -6,9 +6,11 @@ import Album from './components/Album/Album';
 import { AlbumType } from './types';
 import searchAlbumsAPI from './services/searchAlbumsAPI';
 import Layout from './components/Layout/Layout';
+import Favorites from './components/Favorites/Favorites';
 
 function App() {
   const [albumList, setArtistList] = useState<AlbumType[] | []>([]);
+
   const searchArtist = async (artist: string) => {
     const albuns = await searchAlbumsAPI(artist);
     setArtistList(albuns);
@@ -24,7 +26,7 @@ function App() {
           element={ <Search globalState={ { albumList, searchArtist } } /> }
         />
         <Route path="/album/:id" element={ <Album /> } />
-        <Route path="/favorites" />
+        <Route path="/favorites" element={ <Favorites /> } />
         <Route path="/profile" />
         <Route path="/profile/edit" />
         <Route path="*/" />

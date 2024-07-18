@@ -23,14 +23,17 @@ export default function Header() {
 
   return (
     <header data-testid="header-component">
-      <h3 data-testid="header-user-name">{ userName }</h3>
+      <h3 data-testid="header-user-name">{userName}</h3>
       <nav>
-        <NavLink to="/search" data-testid="link-to-search" />
-        Search
-        <NavLink to="/favorites" data-testid="link-to-favorites" />
-        Favorites
-        <NavLink to="/profile" data-testid="link-to-profile" />
-        Profile
+        <NavLink to="/search" data-testid="link-to-search">
+          Search
+        </NavLink>
+        <NavLink to="/favorites" data-testid="link-to-favorites">
+          Favorites
+        </NavLink>
+        <NavLink to="/profile" data-testid="link-to-profile">
+          Profile
+        </NavLink>
       </nav>
     </header>
   );

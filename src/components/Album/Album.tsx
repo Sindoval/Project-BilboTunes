@@ -22,12 +22,12 @@ export default function Album() {
       setMusics(musicList);
       setLoading(false);
     };
-    const favoritesMusics = async () => {
+    const fetchFavorites = async () => {
       const musicsFav = await getFavoriteSongs();
       setFavMusics(musicsFav);
     };
-    favoritesMusics();
     musicsAPI();
+    fetchFavorites();
   }, [id]);
 
   if (loading) {
@@ -47,13 +47,14 @@ export default function Album() {
             {musics.map((music) => (
               <MusicCard
                 key={ music.trackId }
-                info={ {
-                  id: music.trackId,
-                  trackName: music.trackName,
-                  previewUrl: music.previewUrl,
-                  artWorkUrl100: infoArtist.artworkUrl100,
-                  favMusics,
-                } }
+                id={ music.trackId }
+                trackName={ music.trackName }
+                previewUrl={ music.previewUrl }
+                page="album"
+                refetchFavorites={ () => {} }
+                checked={
+                  favMusics.some((favMusic) => music.trackId === favMusic.trackId)
+                }
               />
             ))}
           </div>

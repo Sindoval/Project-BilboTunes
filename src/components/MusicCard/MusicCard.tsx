@@ -2,48 +2,66 @@ import { useEffect, useState } from 'react';
 import empty_heart from '../../images/empty_heart.png';
 import checked_heart from '../../images/checked_heart.png';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
-import { SongType } from '../../types';
+import getMusics from '../../services/musicsAPI';
+import { AlbumType } from '../../types';
 
 type MusicCardProps = {
-  info: {
-    id: number,
-    trackName: string,
-    previewUrl: string,
-    artWorkUrl100: string,
-    favMusics: SongType[],
-  };
+  id: number,
+  trackName: string,
+  previewUrl: string,
+  checked: boolean,
+  page: 'album' | 'favorites',
+  refetchFavorites: () => void,
 };
 
-export default function MusicCard({ info }: MusicCardProps) {
+export default function MusicCard(
+  { id,
+    trackName,
+    previewUrl,
+    checked,
+    page,
+    refetchFavorites,
+  }: MusicCardProps,
+) {
   const [inputCheck, setInputCheck] = useState(false);
+  const [infoArtist, setInfoArtist] = useState<AlbumType | null>(null);
 
   useEffect(() => {
-    if (info.favMusics) {
-      const favTest = info.favMusics.some((music) => music.trackId === info.id);
-      setInputCheck(favTest);
-    }
-  }, [info.favMusics, info.id]);
+    setInputCheck(checked);
+    const musicsAPI = async () => {
+      const data = await getMusics(String(id));
+      const [info] = data;
+      setInfoArtist(info);
+    };
+    musicsAPI();
+  }, [checked, id]);
 
   const handleChange = async () => {
     setInputCheck(!inputCheck);
-    if (!inputCheck) {
-      await addSong({
-        trackId: info.id,
-        trackName: info.trackName,
-        previewUrl: info.previewUrl });
-    } else {
+    if (inputCheck) {
       await removeSong({
-        trackId: info.id,
-        trackName: info.trackName,
-        previewUrl: info.previewUrl });
+        trackId: id,
+        trackName,
+        previewUrl });
+      refetchFavorites();
+    } else {
+      setInputCheck(true);
+      await addSong({
+        trackId: id,
+        trackName,
+        previewUrl });
     }
   };
-
+  if (page === 'favorites' && !inputCheck) {
+    return;
+  }
   return (
     <div className="music-card">
-      <p>{info.trackName}</p>
-      <img src={ info.artWorkUrl100 } alt={ info.trackName } />
-      <audio data-testid="audio-component" src={ info.previewUrl } controls>
+      <p>{trackName}</p>
+      { infoArtist && (
+        <img src={ infoArtist.artworkUrl100 } alt={ trackName } />
+      )}
+      <audio data-testid="audio-component" src={ previewUrl } controls>
         <track kind="captions" />
         O seu navegador não suporta o elemento
         {' '}
@@ -51,18 +69,18 @@ export default function MusicCard({ info }: MusicCardProps) {
         .
       </audio>
       <label
-        htmlFor={ info.trackName }
-        data-testid={ `checkbox-music-${info.id}` }
+        htmlFor={ trackName }
+        data-testid={ `checkbox-music-${id}` }
       >
         <input
           type="checkbox"
           name=""
-          id={ info.trackName }
+          id={ trackName }
           checked={ inputCheck }
           onChange={ handleChange }
         />
         {inputCheck ? (
-          <img src={ checked_heart } alt="favorite" id={ info.trackName } />
+          <img src={ checked_heart } alt="favorite" id={ trackName } />
         ) : (
           <img src={ empty_heart } alt="favorite" id="checked" />
         ) }

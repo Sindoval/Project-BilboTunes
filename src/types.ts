@@ -28,3 +28,10 @@ export type GlobalState = {
     searchArtist: (artist: string) => void;
   }
 };
+
+export type FavoriteMusicsProp = {
+  prop: {
+    favMusics: SongType[],
+    favoriteMusics: () => void;
+  }
+};
