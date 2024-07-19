@@ -8,6 +8,7 @@ import searchAlbumsAPI from './services/searchAlbumsAPI';
 import Layout from './components/Layout/Layout';
 import Favorites from './components/Favorites/Favorites';
 import Profile from './components/Profile/Profile';
+import ProfileEdit from './components/ProfileEdit/ProfileEdit';
 
 function App() {
   const [albumList, setArtistList] = useState<AlbumType[] | []>([]);
@@ -29,7 +30,7 @@ function App() {
         <Route path="/album/:id" element={ <Album /> } />
         <Route path="/favorites" element={ <Favorites /> } />
         <Route path="/profile" element={ <Profile /> } />
-        <Route path="/profile/edit" />
+        <Route path="/profile/edit" element={ <ProfileEdit /> } />
         <Route path="*/" />
       </Route>
     </Routes>
