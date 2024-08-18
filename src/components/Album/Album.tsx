@@ -5,6 +5,7 @@ import Loading from '../Loading/Loading';
 import { AlbumType, SongType } from '../../types';
 import MusicCard from '../MusicCard/MusicCard';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
+import './Album.css';
 
 export default function Album() {
   const [musics, setMusics] = useState<SongType[] | []>([]);
@@ -37,13 +38,12 @@ export default function Album() {
   return (
     infoArtist && (
       <>
-        <header>
-          <h1>Álbum</h1>
-        </header>
-        <main>
+        <header className="header-album">
           <h1 data-testid="artist-name">{infoArtist.artistName}</h1>
           <h2 data-testid="album-name">{infoArtist.collectionName}</h2>
-          <div id="music-list">
+        </header>
+        <main>
+          <div className="music-list">
             {musics.map((music) => (
               <MusicCard
                 key={ music.trackId }

@@ -3,6 +3,7 @@ import Loading from '../Loading/Loading';
 import { SongType } from '../../types';
 import MusicCard from '../MusicCard/MusicCard';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
+import '../Album/Album.css';
 
 export default function Favorites() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,7 @@ export default function Favorites() {
     <>
       <h1>Favorites</h1>
       {favMusics.length > 0 && (
-        <main>
+        <main className="music-list">
           {favMusics.map((music) => (
             <MusicCard
               key={ music.previewUrl }

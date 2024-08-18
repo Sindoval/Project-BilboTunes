@@ -4,6 +4,7 @@ import checked_heart from '../../images/checked_heart.png';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import getMusics from '../../services/musicsAPI';
 import { AlbumType } from '../../types';
+import './MusicCard.css';
 
 type MusicCardProps = {
   id: number,
@@ -61,30 +62,42 @@ export default function MusicCard(
       { infoArtist && (
         <img src={ infoArtist.artworkUrl100 } alt={ trackName } />
       )}
-      <audio data-testid="audio-component" src={ previewUrl } controls>
-        <track kind="captions" />
-        O seu navegador não suporta o elemento
-        {' '}
-        <code>audio</code>
-        .
-      </audio>
-      <label
-        htmlFor={ trackName }
-        data-testid={ `checkbox-music-${id}` }
-      >
-        <input
-          type="checkbox"
-          name=""
-          id={ trackName }
-          checked={ inputCheck }
-          onChange={ handleChange }
-        />
-        {inputCheck ? (
-          <img src={ checked_heart } alt="favorite" id={ trackName } />
-        ) : (
-          <img src={ empty_heart } alt="favorite" id="checked" />
-        ) }
-      </label>
+      <div>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          {' '}
+          <code>audio</code>
+          .
+        </audio>
+        <label
+          htmlFor={ trackName }
+          data-testid={ `checkbox-music-${id}` }
+        >
+          <input
+            type="checkbox"
+            name=""
+            id={ trackName }
+            checked={ inputCheck }
+            onChange={ handleChange }
+          />
+          {inputCheck ? (
+            <img
+              src={ checked_heart }
+              alt="favorite"
+              id={ trackName }
+              className="fav-img"
+            />
+          ) : (
+            <img
+              src={ empty_heart }
+              alt="favorite"
+              id="checked"
+              className="fav-img"
+            />
+          ) }
+        </label>
+      </div>
     </div>
   );
 }

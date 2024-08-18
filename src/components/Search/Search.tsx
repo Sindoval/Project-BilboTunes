@@ -49,7 +49,7 @@ export default function Search({ globalState }: GlobalState) {
 
   return (
     <>
-      <header>
+      <header className="header-search">
         <h1>Search</h1>
         <input
           type="text"
@@ -62,6 +62,8 @@ export default function Search({ globalState }: GlobalState) {
           data-testid="search-artist-button"
           onClick={ buttonClick }
           disabled={ isDisabled }
+          type="button"
+          className="btn btn-warning"
         >
           Pesquisar
         </button>

@@ -19,14 +19,6 @@ export default function AlbumCard({ info }: AlbumCardProps) {
         <p>{info.artist}</p>
         <p>{info.albumName}</p>
         <img src={ info.url } alt={ info.albumName } />
-        <p>
-          Data:
-          { info.date }
-        </p>
-        <p>
-          Price -
-          {String(info.price)}
-        </p>
       </Link>
     </div>
   );

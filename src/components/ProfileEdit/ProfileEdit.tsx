@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { getUser, updateUser } from '../../services/userAPI';
 import { UserType } from '../../types';
+import './ProfileEdit.css';
 
 export default function ProfileEdit() {
   const [loading, setLoading] = useState(true);
@@ -60,56 +61,65 @@ export default function ProfileEdit() {
   return (
     <>
       <h1>Editar perfil</h1>
-      <main>
-        <form action="">
-          <label htmlFor="name">Nome</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            data-testid="edit-input-name"
-            value={ user.name }
-            placeholder={ user.name }
-            onChange={ handleChange }
-          />
+      <main className="main-edit">
+        <form action="" className="row g-3">
+          <div className="col-md-6">
+            <label htmlFor="name" className="form-label">Nome</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              data-testid="edit-input-name"
+              value={ user.name }
+              placeholder={ user.name }
+              onChange={ handleChange }
+            />
+          </div>
+          <div className="col-md-6">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="form-control"
+              id="email"
+              data-testid="edit-input-email"
+              value={ user.email }
+              placeholder={ user.email }
+              onChange={ handleChange }
+            />
+          </div>
+          <div className="col-12">
+            <label htmlFor="image" className="form-label">Imagem</label>
+            <input
+              type="text"
+              name="image"
+              className="form-control"
+              id="image"
+              data-testid="edit-input-image"
+              value={ user.image }
+              placeholder={ user.image }
+              onChange={ handleChange }
+            />
+          </div>
 
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            data-testid="edit-input-email"
-            value={ user.email }
-            placeholder={ user.email }
-            onChange={ handleChange }
-          />
-
-          <label htmlFor="image">Imagem</label>
-          <input
-            id="image"
-            name="image"
-            type="text"
-            data-testid="edit-input-image"
-            value={ user.image }
-            placeholder={ user.image }
-            onChange={ handleChange }
-          />
-
-          <label htmlFor="description">Description</label>
-          <input
-            id="description"
-            name="description"
-            type="text"
-            data-testid="edit-input-description"
-            value={ user.description }
-            placeholder="Sobre mim"
-            onChange={ handleChange }
-          />
-
+          <div className="col-12">
+            <label htmlFor="description" className="form-label">Descrição</label>
+            <input
+              type="text"
+              name="description"
+              className="form-control"
+              id="description"
+              data-testid="edit-input-description"
+              value={ user.description }
+              placeholder={ user.description }
+              onChange={ handleChange }
+            />
+          </div>
           <button
             data-testid="edit-button-save"
             disabled={ disabled }
             onClick={ onClick }
+            className="btn btn-outline-warning"
           >
             Salvar
           </button>

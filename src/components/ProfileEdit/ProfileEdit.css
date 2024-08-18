@@ -1,0 +1,10 @@
+.main-edit {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.main-edit form {
+  margin-top: 2em;
+  width: 80%;
+}

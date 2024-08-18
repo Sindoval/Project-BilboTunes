@@ -1,0 +1,13 @@
+.profile-foto svg {
+  margin: 2em;
+}
+
+.profile-foto img {
+  border-radius: 50%;
+  margin: 2em;
+  width: 20%;
+}
+
+.profile-info {
+  margin-bottom: 3em;
+}

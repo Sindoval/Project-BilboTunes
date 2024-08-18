@@ -1,0 +1,16 @@
+.music-card {
+  margin: 2em;
+}
+
+.music-card:hover {
+  opacity: 90%;
+}
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+input[ type = 'checkbox' ] {
+  display: none;
+}
+
+.fav-img {
+  margin-left: 1.5em;
+}
