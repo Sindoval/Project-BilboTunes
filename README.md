@@ -1,20 +1,61 @@
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
-<h3 align="left">Desenvolvido juntamente com a @Trybe, esse projeto tem como finalidade criar uma aplicação capaz de reproduzir músicas dos mais variados artistas e bandas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada. Essa aplicação será capaz de:<br><br>- Fazer login.<br>- Pesquisar por uma banda ou um artista.<br>- Listar os álbuns disponíveis dessa banda ou desse artista.<br>- Visualizar as músicas de um álbum selecionado.<br>- Reproduzir uma prévia das músicas do álbum.<br>- Favoritar e desfavoritar músicas.<br>- Ver a lista de músicas favoritadas.<br>- Ver o perfil da pessoa logada.<br>- Editar o perfil da pessoa logada.<br><br><br><br>Principais Tecnológias utilizadas: React/TypeScript</h3>
-
-###
-<h3 align="left">Habilidades:<br><br>- Fazer requisições e consumir dados vindos de uma API.<br>- Utilizar o hook useEffect.<br>- Utilizar o hook useState.<br>- Utilizar o componente BrowserRouter corretamente.<br>- Criar rotas, mapeando o caminho da URL com o componente correspondente via Route.<br>- Utilizar o Routes do React Router Dom.<br>- Criar links de navegação na aplicação com o componente Link.</h3>
+<h1 align="left">BilboTunes</h1>
 
 ###
 
-<p align="left"></p>
+<p align="left">BilboTunes é uma aplicação web que permite aos usuários reproduzir músicas de uma vasta gama de artistas e bandas, criar uma lista de músicas favoritas e editar seu perfil de usuário. Esta aplicação foi desenvolvida com React, utilizando bibliotecas modernas e boas práticas de desenvolvimento.</p>
 
 ###
-# :construction: README em construção ! :construction:
+
+<h2 align="left">Funcionalidades</h2>
+
+###
+
+<p align="left">- Login de usuário: Permite que o usuário faça login na aplicação.<br>- Busca de bandas ou artistas: - Pesquisa rápida por bandas ou artistas para visualizar álbuns.<br>- Listagem de álbuns: Exibição de álbuns disponíveis de um artista ou banda.<br>- Visualização de músicas: Mostra as faixas de um álbum selecionado com a opção de reproduzir uma prévia.<br>- Favoritar e desfavoritar músicas: Adiciona ou remove músicas da lista de favoritos.<br>- Lista de músicas favoritas: Mostra todas as músicas que o usuário marcou como favoritas.<br>- Perfil do usuário: Visualização e edição do perfil do usuário.</p>
+
+###
+
+<h2 align="left">Tecnologias Utilizadas</h2>
+
+###
+
+<p align="left">- TypeScript: Tipagem estática para maior segurança no código.<br>- React: Biblioteca principal para construção da interface.<br>- React Router Dom: Gerenciamento de rotas.<br>- Bootstrap: Estilização rápida e responsiva.<br>- Vite: Ferramenta para desenvolvimento e build.<br>- SweetAlert2: Alertas estilizados e interativos.</p>
+
+###
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="typescript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="bootstrap logo"  />
+</div>
+
+###
+
+<h2 align="left">Como Clonar e Rodar o Projeto Localmente</h2>
+
+###
+
+<h4 align="left">Requisitos Prévidos</h4>
+
+###
+
+<p align="left">- Node.js na versão 18 (ou instale o nvm para gerenciar múltiplas versões de Node).<br>- npm ou yarn para gerenciamento de dependências.</p>
+
+###
+
+<h4 align="left">Passos para Instalação</h4>
+
+###
+
+<p align="left">Clone o repositório:<br><br>- git clone https://github.com/Sindoval/Project-BilboTunes<br><br>Navegue até o diretório do projeto:<br><br>- cd sd-030-b-project-trybetunes-vite-ts<br><br>Instale as dependências:<br><br>- npm install<br><br> ou<br><br>- yarn install<br><br>Inicie o servidor de desenvolvimento:<br><br>-  run dev<br><br>ou<br><br>- yarn dev<br><br><br>Caso a aplicação não abra: <br>Acesse endereço http://localhost:5173 em seu navegador.</p>
+
+###
+
+<h2 align="left">Agradecimentos</h2>
+
+###
+
+<p align="left">Este projeto foi produzido em colaboração com a [Trybe](https://www.betrybe.com/), que forneceu suporte técnico e orientação ao longo do desenvolvimento.</p>
+
+###
